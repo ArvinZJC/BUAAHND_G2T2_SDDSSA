@@ -222,7 +222,6 @@ namespace GradeSummary
             this.Load += new System.EventHandler(this.FrmSummaryPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         } // end method InitializeComponent
         #endregion Windows Form Designer generated code
 
