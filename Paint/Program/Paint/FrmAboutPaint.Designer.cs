@@ -124,8 +124,7 @@ namespace Paint
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-        }
+        } // end method InitializeComponent
         #endregion Windows Form Designer generated code
 
         private System.Windows.Forms.Button BtnClose;

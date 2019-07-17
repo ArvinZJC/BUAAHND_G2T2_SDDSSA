@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,13 +36,17 @@
   <PropertyGroup>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Vsa, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Syncfusion.Core.WinForms, Version=17.1460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.HTMLUI.Base, Version=17.1460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.HTMLUI.Windows, Version=17.1460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Scripting.Base, Version=17.1460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Shared.Base, Version=17.1460.0.47, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -75,11 +80,15 @@
     <EmbeddedResource Include="FrmAboutPaint.resx">
       <DependentUpon>FrmAboutPaint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainInterface.resx">
+      <DependentUpon>FrmMainInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,6 +108,63 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\Paste From.png" />
+    <None Include="img\Cut.png" />
+    <None Include="img\Copy.png" />
+    <None Include="img\Crop.png" />
+    <None Include="img\Flip Vertical.png" />
+    <None Include="img\Flip Horizontal.png" />
+    <None Include="img\Colour Picker.png" />
+    <None Include="img\Fill With Colour.png" />
+    <None Include="img\Magnifier.png" />
+    <None Include="img\Invert Selection.png" />
+    <None Include="img\Delete.png" />
+    <None Include="img\Brush.png" />
+    <None Include="img\Calligraphy Brush 1.png" />
+    <None Include="img\Calligraphy Brush 2.png" />
+    <None Include="img\Airbrush.png" />
+    <None Include="img\Crayon.png" />
+    <None Include="img\Marker.png" />
+    <None Include="img\Natural Pencil.png" />
+    <None Include="img\Oil Brush.png" />
+    <None Include="img\4-point Star.png" />
+    <None Include="img\5-point Star.png" />
+    <None Include="img\6-point Star.png" />
+    <None Include="img\Cloud Callout.png" />
+    <None Include="img\Curve.png" />
+    <None Include="img\Diamond.png" />
+    <None Include="img\Down Arrow.png" />
+    <None Include="img\Heart.png" />
+    <None Include="img\Hexagon.png" />
+    <None Include="img\Left Arrow.png" />
+    <None Include="img\Lightning.png" />
+    <None Include="img\Line.png" />
+    <None Include="img\Oval Callout.png" />
+    <None Include="img\Oval.png" />
+    <None Include="img\No Outline Or Fill.png" />
+    <Content Include="img\Paste.png" />
+    <None Include="img\Resize.png" />
+    <None Include="img\Rotate Right 90.png" />
+    <None Include="img\Rotate 180.png" />
+    <None Include="img\Pencil.png" />
+    <None Include="img\Text.png" />
+    <None Include="img\Rubber.png" />
+    <None Include="img\Select.png" />
+    <None Include="img\Watercolour Brush.png" />
+    <None Include="img\Pentagon.png" />
+    <None Include="img\Polygon.png" />
+    <None Include="img\Rectangle.png" />
+    <None Include="img\Right Arrow.png" />
+    <None Include="img\Right-angled Triangle.png" />
+    <None Include="img\Rounded Rectangle Callout.png" />
+    <None Include="img\Rounded Rectangle.png" />
+    <None Include="img\Triangle.png" />
+    <None Include="img\Up Arrow.png" />
+    <None Include="img\Solid Colour.png" />
+    <None Include="img\Shapes.png" />
+    <None Include="img\Shape FIll.png" />
+    <None Include="img\Shape Outline.png" />
+    <None Include="img\Size.png" />
     <Content Include="Logo.ico" />
     <None Include="img\Logo.png" />
   </ItemGroup>
