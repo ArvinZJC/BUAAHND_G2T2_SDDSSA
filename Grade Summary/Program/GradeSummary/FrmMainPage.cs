@@ -22,7 +22,7 @@ namespace GradeSummary
 
         #region Members
         private int count = 0;
-        private readonly GradeSummaryGenerator gradeSummary = new GradeSummaryGenerator(); // create a GradeSummaryGenerator object and assign it to "gradeSummary";
+        private readonly GradeSummaryGenerator gradeSummary; // create a GradeSummaryGenerator object and assign it to "gradeSummary";
         #endregion Members
 
         #region Private Methods
