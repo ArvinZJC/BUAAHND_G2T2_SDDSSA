@@ -27,13 +27,12 @@ namespace Tools
         #region Public Methods
         public bool CheckInputForSize(string inputForSize)
         {
-            /* allow entering only spaces;
-               allow entering an integer or a number with 1 decimal place between 0 and 100;
-               the input can start with spaces and can also end up with spaces */
-            string pattern = @"^\s*(100.0|100|(\d{1,2}(\.\d)?))?\s*$";
+            string pattern = @"^[1-100]$"; // allow entering an integer between 1 and 100
 
-            // check if the input is legal
-            if (Regex.IsMatch(inputForSize, pattern))
+            /* check if the input is legal;
+             * the input can start with spaces and can also end up with spaces
+             */
+            if (Regex.IsMatch(inputForSize.Trim(), pattern))
                 return true;
             else
                 return false;
@@ -41,3 +40,5 @@ namespace Tools
         #endregion Public Methods
     } // end class PaintingTools
 } // end namespace Tools
+                        
+                        
