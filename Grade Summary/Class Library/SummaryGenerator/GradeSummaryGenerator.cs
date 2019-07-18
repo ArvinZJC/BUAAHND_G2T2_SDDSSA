@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 namespace SummaryGenerator
 {
     /// <summary>
-    /// The class <see cref="GenerateSummary"/> contains certain methods called by the main program of Grade Summary.
+    /// The class <see cref="GradeSummaryGenerator"/> contains certain methods called by the main program of Grade Summary.
     /// </summary>
-    public class GenerateSummary
+    public class GradeSummaryGenerator
     {
         #region Members
         private double sum; // the variable "sum" is used to store the sum of grades recorded
@@ -53,17 +53,17 @@ namespace SummaryGenerator
         /// <summary>
         /// Check the input.
         /// </summary>
-        /// <param name="str">the input</param>
+        /// <param name="input">the input</param>
         /// <returns>return the checking result</returns>
-        public string CheckInput(string str)
+        public string CheckInput(string input)
         {
-            /* allow entering only spaces;
-               allow entering an integer or a number with 1 decimal place between 0 and 100;
-               the input can start with spaces and can also end up with spaces */
-            string pattern = @"^\s*(100.0|100|(\d{1,2}(\.\d)?))?\s*$";
+            string pattern = @"^(100.0|100|(\d{1,2}(\.\d)?))?$"; // allow entering an integer or a number with 1 decimal place between 0 and 100
 
-            // check if the input is legal
-            if (Regex.IsMatch(str, pattern))
+            /* check if the input is legal;
+             * allow entering only spaces;
+             * the input can start with spaces and can also end up with spaces
+             */
+            if (Regex.IsMatch(input.Trim(), pattern))
                 return "";
             else
                 return "×";
@@ -148,7 +148,8 @@ namespace SummaryGenerator
         public string GetHighestGrade(int count)
         {
             /* execute if the value of the grade count is not 1 and there are different grades;
-               call the specified method to check if all the grades are the same */
+             * call the specified method to check if all the grades are the same
+             */
             if (count != 1 && HasDifferentGrades(count))
             {
                 DescendingSort(); // call the specified method to sort from the highest to the lowest
@@ -166,7 +167,8 @@ namespace SummaryGenerator
         public string GetLowestGrade(int count)
         {
             /* execute if the value of the grade count is not 1 and there are different grades;
-               call the specified method to check if all the grades are the same */
+             * call the specified method to check if all the grades are the same
+             */
             if (count != 1 && HasDifferentGrades(count))
             {
                 DescendingSort(); // call the specified method to sort from the highest to the lowest
@@ -176,5 +178,5 @@ namespace SummaryGenerator
                 return "-";
         } // end method GetLowestGrade
         #endregion Public Methods
-    } // end class GradeSummary
+    } // end class GradeSummaryGenerator
 } // end namespace SummaryGenerator

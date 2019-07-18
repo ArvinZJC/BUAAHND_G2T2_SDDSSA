@@ -21,7 +21,7 @@ namespace GradeSummary
 
         #region Members
         private int count = 0;
-        private readonly GenerateSummary gradeSummary = new GenerateSummary(); // create a GenerateSummary object and assign it to "gradeSummary";
+        private readonly GradeSummaryGenerator gradeSummary = new GradeSummaryGenerator(); // create a GradeSummaryGenerator object and assign it to "gradeSummary";
         #endregion Members
 
         #region Private Methods
@@ -70,7 +70,8 @@ namespace GradeSummary
         private void BtnOK_Click(object sender, EventArgs e)
         {
             /* execute if there is space in the storage;
-               call the specified method in class GenerateSummary to check the storage status */
+             * call the specified method in class GenerateSummary to check the storage status
+             */
             if (gradeSummary.CheckStorageStatus(count))
             {
                 gradeSummary.grade[count++] = Convert.ToDouble(TxtInput.Text);

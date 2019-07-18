@@ -14,7 +14,7 @@ namespace GradeSummary
     /// </summary>
     public partial class FrmSummaryPage : Form
     {
-        public FrmSummaryPage(int number, GenerateSummary summaryData)
+        public FrmSummaryPage(int number, GradeSummaryGenerator summaryData)
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace GradeSummary
 
         #region Members
         private readonly int count;
-        private readonly GenerateSummary gradeSummary;
+        private readonly GradeSummaryGenerator gradeSummary;
         #endregion Members
 
         #region Control Events
@@ -42,7 +42,8 @@ namespace GradeSummary
             TxtLowestGrade.Text = gradeSummary.GetLowestGrade(count); // call the specified method in class GenerateSummary to get the lowest grade
             TxtAllGrades.Text = gradeSummary.GetGradeList(count);
             /* call the specified method in class GenerateSummary to get the grade list;
-               the 3 methods above called in this order enable that the grade list can be displayed in a descending order */
+             * the 3 methods above called in this order enable that the grade list can be displayed in a descending order
+             */
             TxtCountForGrades.Text = count.ToString(); // get the number of grades recorded
             TxtSum.Text = gradeSummary.GetSum(count); // call the specified method in class GenerateSummary to get the sum of grades recorded
             TxtAverage.Text = gradeSummary.GetAverage(count); // call the specified method in class GenerateSummary to get the average of grades recorded
@@ -67,5 +68,5 @@ namespace GradeSummary
             Dispose(); // dispose of the summary page
         } // end method BtnMainPage_Click
         #endregion Control Events
-    } // end partial class FrmSUMpage
+    } // end partial class FrmSummaryPage
 } // end namespace GradeSummary

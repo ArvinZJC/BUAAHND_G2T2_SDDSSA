@@ -746,8 +746,12 @@ namespace Paint
         #endregion Shapes
 
         #region Size
+        private void ToolStripComboBoxExSize_TextChanged(object sender, EventArgs e)
+        {
 
+        } // end method ToolStripComboBoxExSize_TextChanged
         #endregion Size
+
         #endregion Home
 
         #endregion Control Events
