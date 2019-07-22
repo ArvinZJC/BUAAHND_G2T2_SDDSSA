@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SummaryGenerator")]
-[assembly: AssemblyDescription("This belongs to the class library.")]
+[assembly: AssemblyDescription("This assembly contains code for a class library of the specified program.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arvin Zhao")]
-[assembly: AssemblyProduct("Grade Summary")]
+[assembly: AssemblyProduct("Grade Summary Generator")]
 [assembly: AssemblyCopyright("© 2018 Arvin Zhao")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
