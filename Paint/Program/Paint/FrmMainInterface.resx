@@ -118,32 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="BackStageViewFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>394, 11</value>
+    <value>409, 3</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="resource.DisabledNextPageImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk1WAQAAAAAAADYAAAAoAAAACgAAAAkAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQQF////
-        ////////////BAAA////////////////AAADAQECAAD///////////8JBwcCAAD///////////8AAAIA
-        AAMBAQQCAv///////wMBAQIAAAQCAv///////wAACQYIAgABAgABBQIE////BAEDAgABAwACCQYI////
-        AAACAAECAAEFAgQCAAEDAAICAAEMCQsCAAECAAEGAwUAAAwJCwIAAQoHCQcEBv///wcEBgIAAQIAAQIA
-        Af///wAAAgABCAUHAgAB////////AgABCwgKBQIE////////AAAGAwUDAAL///////////8CAAECAAH/
-        //////////8AAAIAAf///////////////wIAAf///////////////wAA
-</value>
-  </data>
-  <data name="resource.NextPageImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk1WAQAAAAAAADYAAAAoAAAACgAAAAkAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQQF////
-        ////////////BAAA////////////////AAADAQECAAD///////////8JBwcCAAD///////////8AAAIA
-        AAMBAQQCAv///////wMBAQIAAAQCAv///////wAACQYIAgABAgABBQIE////BAEDAgABAwACCQYI////
-        AAACAAECAAEFAgQCAAEDAAICAAEMCQsCAAECAAEGAwUAAAwJCwIAAQoHCQcEBv///wcEBgIAAQIAAQIA
-        Af///wAAAgABCAUHAgAB////////AgABCwgKBQIE////////AAAGAwUDAAL///////////8CAAECAAH/
-        //////////8AAAIAAf///////////////wIAAf///////////////wAA
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIACK0QAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAAAlw
@@ -1047,28 +1027,28 @@
     <value />
   </metadata>
   <metadata name="ToolStripExClipboard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>191, -81</value>
+    <value>191, -84</value>
   </metadata>
   <metadata name="SuperToolTipNavbar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>576, 12</value>
+    <value>201, 3</value>
   </metadata>
   <metadata name="ToolStripExImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>13, -80</value>
+    <value>13, -83</value>
   </metadata>
   <metadata name="ToolStripExTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>772, -83</value>
+    <value>772, -86</value>
   </metadata>
   <metadata name="ToolStripExBrushes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>944, -84</value>
+    <value>944, -87</value>
   </metadata>
   <metadata name="ToolStripExShapes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>13, -44</value>
+    <value>13, -47</value>
   </metadata>
   <metadata name="ToolStripExSize.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>210, -155</value>
+    <value>210, -158</value>
   </metadata>
   <metadata name="ToolStripExColours.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>200, 0</value>
+    <value>13, 3</value>
   </metadata>
   <metadata name="ToolStripTabItemView.TabGroup" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value />

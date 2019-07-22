@@ -27,7 +27,7 @@ namespace Tools
         #region Public Methods
         public bool CheckInputForSize(string inputForSize)
         {
-            string pattern = @"^[1-100]$"; // allow entering an integer between 1 and 100
+            string pattern = @"^(([1-9][0-9]?)|100)$"; // allow entering an integer between 1 and 100
 
             /* check if the input is legal;
              * the input can start with spaces and can also end up with spaces

@@ -24,11 +24,11 @@ namespace Paint
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAboutPaint));
             this.BtnClose = new System.Windows.Forms.Button();
-            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.LblProduct = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblCopyright = new System.Windows.Forms.Label();
+            this.PicLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +51,7 @@ namespace Paint
             this.BtnClose.TabStop = false;
             this.BtnClose.Text = "×";
             this.BtnClose.UseVisualStyleBackColor = false;
-            // 
-            // PicLogo
-            // 
-            this.PicLogo.BackColor = System.Drawing.Color.Transparent;
-            this.PicLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicLogo.BackgroundImage")));
-            this.PicLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PicLogo.Location = new System.Drawing.Point(49, 55);
-            this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(150, 150);
-            this.PicLogo.TabIndex = 1;
-            this.PicLogo.TabStop = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LblProduct
             // 
@@ -70,9 +60,9 @@ namespace Paint
             this.LblProduct.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblProduct.Location = new System.Drawing.Point(205, 81);
             this.LblProduct.Name = "LblProduct";
-            this.LblProduct.Size = new System.Drawing.Size(219, 90);
+            this.LblProduct.Size = new System.Drawing.Size(283, 90);
             this.LblProduct.TabIndex = 0;
-            this.LblProduct.Text = "Paint";
+            this.LblProduct.Text = "NAME";
             // 
             // LblVersion
             // 
@@ -80,18 +70,19 @@ namespace Paint
             this.LblVersion.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblVersion.Location = new System.Drawing.Point(214, 171);
             this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(197, 34);
+            this.LblVersion.Size = new System.Drawing.Size(145, 34);
             this.LblVersion.TabIndex = 0;
-            this.LblVersion.Text = "Version 1.0.0.0";
+            this.LblVersion.Text = "VERSION";
             // 
             // LblEmail
             // 
             this.LblEmail.AutoSize = true;
             this.LblEmail.Location = new System.Drawing.Point(65, 235);
             this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(333, 44);
+            this.LblEmail.Size = new System.Drawing.Size(333, 66);
             this.LblEmail.TabIndex = 0;
-            this.LblEmail.Text = "If you encounter any problems,\r\nplease send an email to: tomzjc@qq.com";
+            this.LblEmail.Text = "If you encounter any problems,\r\nplease send an email to: tomzjc@qq.com\r\n（设计成点击复制）" +
+    "";
             this.LblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblCopyright
@@ -99,15 +90,26 @@ namespace Paint
             this.LblCopyright.AutoSize = true;
             this.LblCopyright.Location = new System.Drawing.Point(145, 310);
             this.LblCopyright.Name = "LblCopyright";
-            this.LblCopyright.Size = new System.Drawing.Size(169, 22);
+            this.LblCopyright.Size = new System.Drawing.Size(121, 22);
             this.LblCopyright.TabIndex = 0;
-            this.LblCopyright.Text = "© 2018  Arvin Zhao";
+            this.LblCopyright.Text = "COPYRIGHT";
+            // 
+            // PicLogo
+            // 
+            this.PicLogo.BackColor = System.Drawing.Color.Transparent;
+            this.PicLogo.BackgroundImage = global::Paint.Properties.Resources.Logo;
+            this.PicLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PicLogo.Location = new System.Drawing.Point(49, 55);
+            this.PicLogo.Name = "PicLogo";
+            this.PicLogo.Size = new System.Drawing.Size(150, 150);
+            this.PicLogo.TabIndex = 1;
+            this.PicLogo.TabStop = false;
             // 
             // FrmAboutPaint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(467, 393);
             this.Controls.Add(this.LblCopyright);
             this.Controls.Add(this.LblEmail);
@@ -121,9 +123,11 @@ namespace Paint
             this.Name = "FrmAboutPaint";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.FrmAboutPaint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         } // end method InitializeComponent
         #endregion Windows Form Designer generated code
 

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Tools;
 #endregion Using Directives
 
 namespace Paint
@@ -18,10 +20,12 @@ namespace Paint
         public FrmMainInterface()
         {
             InitializeComponent();
+            this.SfBtnAboutPaint.Style.Border = new Pen(Color.DarkGray, 1);
         } // end constructor FrmMainInterface
 
         #region Members
-
+        private readonly ApplicationInfo applicationInfo = new ApplicationInfo();
+        private readonly PaintingTools paintingTools = new PaintingTools();
         #endregion Members
 
         #region Private Methods
@@ -90,6 +94,15 @@ namespace Paint
 
             ToolStripComboBoxExSize.Text = "5"; // Home - Size
         } // end method FrmMainInterface_Load
+
+        #region File
+        private void SfBtnAboutPaint_Click(object sender, EventArgs e)
+        {
+            FrmAboutPaint aboutPaint = new FrmAboutPaint();
+
+            aboutPaint.ShowDialog(this);
+        } // end method SfBtnAboutPaint_Click
+        #endregion File
 
         #region Home
         #region Tools
@@ -748,11 +761,20 @@ namespace Paint
         #region Size
         private void ToolStripComboBoxExSize_TextChanged(object sender, EventArgs e)
         {
+            if (!paintingTools.CheckInputForSize(ToolStripComboBoxExSize.Text))
+            {
+                ToolStripComboBoxExSize.Text = "5";
 
+                MessageBox.Show("Error! Invalid input value. The value will be set to 5px.", applicationInfo.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } // end if
         } // end method ToolStripComboBoxExSize_TextChanged
         #endregion Size
 
         #endregion Home
+
+        #region View
+
+        #endregion View
 
         #endregion Control Events
     } // end partial class FrmMainInterface

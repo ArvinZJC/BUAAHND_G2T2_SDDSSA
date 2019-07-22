@@ -2,13 +2,6 @@
 
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion Using Directives
 
@@ -23,5 +16,23 @@ namespace Paint
         {
             InitializeComponent();
         } // end constructor FrmAboutPaint
+
+        #region Members
+        private readonly ApplicationInfo applicationInfo = new ApplicationInfo();
+        #endregion Members
+
+        #region Control Events
+        private void FrmAboutPaint_Load(object sender, EventArgs e)
+        {
+            LblProduct.Text = applicationInfo.Name;
+            LblVersion.Text = "Version " + applicationInfo.Version;
+            LblCopyright.Text = applicationInfo.Copyright;
+        } // end method FrmAboutPaint_Load
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Dispose(); // dispose of the form About Paint
+        } // end method BtnClose_Click
+        #endregion Control Events
     } // end partial class FrmAboutPaint
 } // end namespace Paint

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Paint")]
-[assembly: AssemblyDescription("This is the main program.")]
+[assembly: AssemblyDescription("This assembly contains code for a painting program.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arvin Zhao")]
 [assembly: AssemblyProduct("Paint")]
-[assembly: AssemblyCopyright("© 2018 Arvin Zhao")]
+[assembly: AssemblyCopyright("© 2019 Arvin Zhao")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,4 +32,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]

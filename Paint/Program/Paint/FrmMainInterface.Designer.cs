@@ -23,7 +23,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainInterface));
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo1 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo2 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo3 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
@@ -69,9 +68,15 @@
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo43 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo44 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
             Syncfusion.Windows.Forms.Tools.ToolTipInfo toolTipInfo45 = new Syncfusion.Windows.Forms.Tools.ToolTipInfo();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainInterface));
             this.RibbonControlAdvNavbar = new Syncfusion.Windows.Forms.Tools.RibbonControlAdv();
             this.BackStageViewFile = new Syncfusion.Windows.Forms.BackStageView(this.components);
             this.BackStageFile = new Syncfusion.Windows.Forms.BackStage();
+            this.BackStageTabInfo = new Syncfusion.Windows.Forms.BackStageTab();
+            this.LblAboutPaintTip = new System.Windows.Forms.Label();
+            this.LblAboutPaint = new System.Windows.Forms.Label();
+            this.LblInfo = new System.Windows.Forms.Label();
+            this.SfBtnAboutPaint = new Syncfusion.WinForms.Controls.SfButton();
             this.ToolStripTabItemHome = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.ToolStripExClipboard = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.ToolStripSplitButtonExPaste = new Syncfusion.Windows.Forms.Tools.ToolStripSplitButtonEx();
@@ -181,6 +186,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControlAdvNavbar)).BeginInit();
             this.RibbonControlAdvNavbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackStageFile)).BeginInit();
+            this.BackStageFile.SuspendLayout();
+            this.BackStageTabInfo.SuspendLayout();
             this.ToolStripTabItemHome.Panel.SuspendLayout();
             this.ToolStripExClipboard.SuspendLayout();
             this.ToolStripExImage.SuspendLayout();
@@ -198,7 +205,7 @@
             this.RibbonControlAdvNavbar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.RibbonControlAdvNavbar.BackStageView = this.BackStageViewFile;
             this.RibbonControlAdvNavbar.CanOverrideStyle = true;
-            this.RibbonControlAdvNavbar.CaptionFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RibbonControlAdvNavbar.CaptionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RibbonControlAdvNavbar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RibbonControlAdvNavbar.Header.AddMainItem(ToolStripTabItemHome);
             this.RibbonControlAdvNavbar.Header.AddMainItem(ToolStripTabItemView);
@@ -230,7 +237,7 @@
             this.RibbonControlAdvNavbar.SelectedTab = this.ToolStripTabItemHome;
             this.RibbonControlAdvNavbar.ShowLauncher = false;
             this.RibbonControlAdvNavbar.ShowRibbonDisplayOptionButton = true;
-            this.RibbonControlAdvNavbar.Size = new System.Drawing.Size(1526, 214);
+            this.RibbonControlAdvNavbar.Size = new System.Drawing.Size(1526, 210);
             this.RibbonControlAdvNavbar.SystemText.QuickAccessDialogDropDownName = "Start menu";
             this.RibbonControlAdvNavbar.SystemText.RenameDisplayLabelText = "&Display Name:";
             this.RibbonControlAdvNavbar.TabIndex = 0;
@@ -251,7 +258,7 @@
             // 
             // BackStageFile
             // 
-            this.BackStageFile.ActiveTabFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BackStageFile.ActiveTabFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackStageFile.ActiveTabForeColor = System.Drawing.Color.Empty;
             this.BackStageFile.AllowDrop = true;
             this.BackStageFile.BackStagePanelWidth = 160;
@@ -262,6 +269,7 @@
             this.BackStageFile.CloseButtonHoverForeColor = System.Drawing.Color.Empty;
             this.BackStageFile.CloseButtonPressedForeColor = System.Drawing.Color.Empty;
             this.BackStageFile.CloseTabOnMiddleClick = false;
+            this.BackStageFile.Controls.Add(this.BackStageTabInfo);
             this.BackStageFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackStageFile.InActiveTabForeColor = System.Drawing.Color.Empty;
             this.BackStageFile.ItemSize = new System.Drawing.Size(160, 40);
@@ -272,10 +280,78 @@
             this.BackStageFile.ShowSeparator = false;
             this.BackStageFile.Size = new System.Drawing.Size(1522, 864);
             this.BackStageFile.TabIndex = 0;
-            this.BackStageFile.ThemeName = "BackStageRenderer";
-            this.BackStageFile.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = ((System.Drawing.Image)(resources.GetObject("resource.DisabledNextPageImage")));
-            this.BackStageFile.ThemeStyle.PrimitiveButtonStyle.NextPageImage = ((System.Drawing.Image)(resources.GetObject("resource.NextPageImage")));
+            this.BackStageFile.ThemeName = "BackStage2016Renderer";
+            this.BackStageFile.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
             this.BackStageFile.Visible = false;
+            // 
+            // BackStageTabInfo
+            // 
+            this.BackStageTabInfo.Accelerator = "";
+            this.BackStageTabInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.BackStageTabInfo.Controls.Add(this.LblAboutPaintTip);
+            this.BackStageTabInfo.Controls.Add(this.LblAboutPaint);
+            this.BackStageTabInfo.Controls.Add(this.LblInfo);
+            this.BackStageTabInfo.Controls.Add(this.SfBtnAboutPaint);
+            this.BackStageTabInfo.Image = null;
+            this.BackStageTabInfo.ImageSize = new System.Drawing.Size(20, 20);
+            this.BackStageTabInfo.Location = new System.Drawing.Point(159, 0);
+            this.BackStageTabInfo.Name = "BackStageTabInfo";
+            this.BackStageTabInfo.Position = new System.Drawing.Point(11, 55);
+            this.BackStageTabInfo.ShowCloseButton = true;
+            this.BackStageTabInfo.Size = new System.Drawing.Size(1363, 864);
+            this.BackStageTabInfo.TabIndex = 2;
+            this.BackStageTabInfo.Text = "Info";
+            this.BackStageTabInfo.ThemesEnabled = false;
+            // 
+            // LblAboutPaintTip
+            // 
+            this.LblAboutPaintTip.AutoEllipsis = true;
+            this.LblAboutPaintTip.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAboutPaintTip.Location = new System.Drawing.Point(146, 135);
+            this.LblAboutPaintTip.Name = "LblAboutPaintTip";
+            this.LblAboutPaintTip.Size = new System.Drawing.Size(410, 63);
+            this.LblAboutPaintTip.TabIndex = 0;
+            this.LblAboutPaintTip.Text = "Learn more about Paint including its version and copyright info.";
+            // 
+            // LblAboutPaint
+            // 
+            this.LblAboutPaint.AutoSize = true;
+            this.LblAboutPaint.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAboutPaint.Location = new System.Drawing.Point(146, 98);
+            this.LblAboutPaint.Name = "LblAboutPaint";
+            this.LblAboutPaint.Size = new System.Drawing.Size(149, 33);
+            this.LblAboutPaint.TabIndex = 0;
+            this.LblAboutPaint.Text = "About Paint";
+            // 
+            // LblInfo
+            // 
+            this.LblInfo.AutoSize = true;
+            this.LblInfo.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInfo.Location = new System.Drawing.Point(40, 15);
+            this.LblInfo.Name = "LblInfo";
+            this.LblInfo.Size = new System.Drawing.Size(70, 37);
+            this.LblInfo.TabIndex = 0;
+            this.LblInfo.Text = "Info";
+            // 
+            // SfBtnAboutPaint
+            // 
+            this.SfBtnAboutPaint.AccessibleName = "Button";
+            this.SfBtnAboutPaint.AllowWrapText = true;
+            this.SfBtnAboutPaint.BackColor = System.Drawing.Color.White;
+            this.SfBtnAboutPaint.FocusRectangleVisible = true;
+            this.SfBtnAboutPaint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SfBtnAboutPaint.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SfBtnAboutPaint.ImageSize = new System.Drawing.Size(36, 36);
+            this.SfBtnAboutPaint.Location = new System.Drawing.Point(40, 98);
+            this.SfBtnAboutPaint.Name = "SfBtnAboutPaint";
+            this.SfBtnAboutPaint.Size = new System.Drawing.Size(100, 100);
+            this.SfBtnAboutPaint.Style.BackColor = System.Drawing.Color.White;
+            this.SfBtnAboutPaint.Style.Image = global::Paint.Properties.Resources.About_Paint;
+            this.SfBtnAboutPaint.TabIndex = 0;
+            this.SfBtnAboutPaint.Text = "About Paint";
+            this.SfBtnAboutPaint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.SfBtnAboutPaint.UseVisualStyleBackColor = false;
+            this.SfBtnAboutPaint.Click += new System.EventHandler(this.SfBtnAboutPaint_Click);
             // 
             // ToolStripTabItemHome
             // 
@@ -318,7 +394,7 @@
             this.ToolStripExClipboard.Name = "ToolStripExClipboard";
             this.ToolStripExClipboard.Office12Mode = false;
             this.ToolStripExClipboard.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExClipboard.Size = new System.Drawing.Size(161, 126);
+            this.ToolStripExClipboard.Size = new System.Drawing.Size(161, 122);
             this.ToolStripExClipboard.TabIndex = 0;
             this.ToolStripExClipboard.Text = "Clipboard";
             // 
@@ -333,7 +409,7 @@
             this.ToolStripSplitButtonExPaste.Image = global::Paint.Properties.Resources.Paste;
             this.ToolStripSplitButtonExPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripSplitButtonExPaste.Name = "ToolStripSplitButtonExPaste";
-            this.ToolStripSplitButtonExPaste.Size = new System.Drawing.Size(70, 101);
+            this.ToolStripSplitButtonExPaste.Size = new System.Drawing.Size(70, 97);
             this.ToolStripSplitButtonExPaste.Text = "Paste";
             this.ToolStripSplitButtonExPaste.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.ToolStripSplitButtonExPaste.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -376,7 +452,7 @@
             this.ToolStripPanelItemClipboardGroup.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolStripPanelItemClipboardGroup.Name = "ToolStripPanelItemClipboardGroup";
             this.ToolStripPanelItemClipboardGroup.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripPanelItemClipboardGroup.Size = new System.Drawing.Size(80, 104);
+            this.ToolStripPanelItemClipboardGroup.Size = new System.Drawing.Size(80, 100);
             this.ToolStripPanelItemClipboardGroup.Transparent = true;
             // 
             // ToolStripButtonCut
@@ -436,7 +512,7 @@
             this.ToolStripExImage.Name = "ToolStripExImage";
             this.ToolStripExImage.Office12Mode = false;
             this.ToolStripExImage.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExImage.Size = new System.Drawing.Size(185, 126);
+            this.ToolStripExImage.Size = new System.Drawing.Size(185, 122);
             this.ToolStripExImage.TabIndex = 0;
             this.ToolStripExImage.Text = "Image";
             // 
@@ -458,7 +534,7 @@
             this.ToolStripSplitButtonExSelect.Image = global::Paint.Properties.Resources.Select;
             this.ToolStripSplitButtonExSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripSplitButtonExSelect.Name = "ToolStripSplitButtonExSelect";
-            this.ToolStripSplitButtonExSelect.Size = new System.Drawing.Size(77, 101);
+            this.ToolStripSplitButtonExSelect.Size = new System.Drawing.Size(77, 97);
             this.ToolStripSplitButtonExSelect.Text = "Select";
             this.ToolStripSplitButtonExSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             toolTipInfo4.BackColor = System.Drawing.SystemColors.Control;
@@ -547,7 +623,7 @@
             this.ToolStripPanelItemImageGroup.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolStripPanelItemImageGroup.Name = "ToolStripPanelItemImageGroup";
             this.ToolStripPanelItemImageGroup.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripPanelItemImageGroup.Size = new System.Drawing.Size(97, 104);
+            this.ToolStripPanelItemImageGroup.Size = new System.Drawing.Size(97, 100);
             this.ToolStripPanelItemImageGroup.Transparent = true;
             // 
             // ToolStripButtonCrop
@@ -707,7 +783,7 @@
             this.ToolStripExTools.Name = "ToolStripExTools";
             this.ToolStripExTools.Office12Mode = false;
             this.ToolStripExTools.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExTools.Size = new System.Drawing.Size(79, 126);
+            this.ToolStripExTools.Size = new System.Drawing.Size(79, 122);
             this.ToolStripExTools.TabIndex = 0;
             this.ToolStripExTools.Text = "Tools";
             // 
@@ -723,7 +799,7 @@
             this.ToolStripPanelToolsGroup1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolStripPanelToolsGroup1.Name = "ToolStripPanelToolsGroup1";
             this.ToolStripPanelToolsGroup1.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripPanelToolsGroup1.Size = new System.Drawing.Size(33, 104);
+            this.ToolStripPanelToolsGroup1.Size = new System.Drawing.Size(33, 100);
             this.ToolStripPanelToolsGroup1.Transparent = true;
             // 
             // ToolStripButtonPencil
@@ -798,7 +874,7 @@
             this.ToolStripPanelItemToolsGroup2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolStripPanelItemToolsGroup2.Name = "ToolStripPanelItemToolsGroup2";
             this.ToolStripPanelItemToolsGroup2.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripPanelItemToolsGroup2.Size = new System.Drawing.Size(33, 104);
+            this.ToolStripPanelItemToolsGroup2.Size = new System.Drawing.Size(33, 100);
             this.ToolStripPanelItemToolsGroup2.Transparent = true;
             // 
             // ToolStripButtonFillWithColour
@@ -878,7 +954,7 @@
             this.ToolStripExBrushes.Name = "ToolStripExBrushes";
             this.ToolStripExBrushes.Office12Mode = false;
             this.ToolStripExBrushes.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExBrushes.Size = new System.Drawing.Size(100, 126);
+            this.ToolStripExBrushes.Size = new System.Drawing.Size(100, 122);
             this.ToolStripExBrushes.TabIndex = 0;
             // 
             // ToolStripSplitButtonExBrushes
@@ -898,7 +974,7 @@
             this.ToolStripSplitButtonExBrushes.Image = global::Paint.Properties.Resources.Brush;
             this.ToolStripSplitButtonExBrushes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripSplitButtonExBrushes.Name = "ToolStripSplitButtonExBrushes";
-            this.ToolStripSplitButtonExBrushes.Size = new System.Drawing.Size(91, 101);
+            this.ToolStripSplitButtonExBrushes.Size = new System.Drawing.Size(91, 97);
             this.ToolStripSplitButtonExBrushes.Text = "Brushes";
             this.ToolStripSplitButtonExBrushes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             toolTipInfo19.BackColor = System.Drawing.SystemColors.Control;
@@ -1028,7 +1104,7 @@
             this.ToolStripExShapes.Name = "ToolStripExShapes";
             this.ToolStripExShapes.Office12Mode = false;
             this.ToolStripExShapes.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExShapes.Size = new System.Drawing.Size(464, 126);
+            this.ToolStripExShapes.Size = new System.Drawing.Size(464, 122);
             this.ToolStripExShapes.TabIndex = 0;
             this.ToolStripExShapes.Text = "Shapes";
             // 
@@ -1042,7 +1118,7 @@
             this.ToolStripButtonDiamond,
             this.ToolStripButton5PointStar});
             this.ToolStripPanelItemShapesGroup1.Name = "ToolStripPanelItemShapesGroup1";
-            this.ToolStripPanelItemShapesGroup1.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup1.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup1.Transparent = true;
             // 
             // ToolStripButtonLine
@@ -1106,7 +1182,7 @@
             this.ToolStripButtonPentagon,
             this.ToolStripButton6PointStar});
             this.ToolStripPanelItemShapesGroup2.Name = "ToolStripPanelItemShapesGroup2";
-            this.ToolStripPanelItemShapesGroup2.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup2.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup2.Transparent = true;
             // 
             // ToolStripButtonCurve
@@ -1170,7 +1246,7 @@
             this.ToolStripButtonHexagon,
             this.ToolStripButtonRoundedRectangleCallout});
             this.ToolStripPanelItemShapesGroup3.Name = "ToolStripPanelItemShapesGroup3";
-            this.ToolStripPanelItemShapesGroup3.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup3.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup3.Transparent = true;
             // 
             // ToolStripButtonOval
@@ -1234,7 +1310,7 @@
             this.ToolStripButtonRightArrow,
             this.ToolStripButtonOvalCallout});
             this.ToolStripPanelItemShapesGroup4.Name = "ToolStripPanelItemShapesGroup4";
-            this.ToolStripPanelItemShapesGroup4.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup4.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup4.Transparent = true;
             // 
             // ToolStripButtonRectangle
@@ -1298,7 +1374,7 @@
             this.ToolStripButtonLeftArrow,
             this.ToolStripButtonCloudCallout});
             this.ToolStripPanelItemShapesGroup5.Name = "ToolStripPanelItemShapesGroup5";
-            this.ToolStripPanelItemShapesGroup5.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup5.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup5.Transparent = true;
             // 
             // ToolStripButtonRoundedRectangle
@@ -1362,7 +1438,7 @@
             this.ToolStripButtonUpArrow,
             this.ToolStripButtonHeart});
             this.ToolStripPanelItemShapesGroup6.Name = "ToolStripPanelItemShapesGroup6";
-            this.ToolStripPanelItemShapesGroup6.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup6.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup6.Transparent = true;
             // 
             // ToolStripButtonPolygon
@@ -1426,7 +1502,7 @@
             this.ToolStripButtonDownArrow,
             this.ToolStripButtonLightning});
             this.ToolStripPanelItemShapesGroup7.Name = "ToolStripPanelItemShapesGroup7";
-            this.ToolStripPanelItemShapesGroup7.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup7.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup7.Transparent = true;
             // 
             // ToolStripButtonTriangle
@@ -1489,7 +1565,7 @@
             this.ToolStripButtonRightAngledTriangle,
             this.ToolStripButton4PointStar});
             this.ToolStripPanelItemShapesGroup8.Name = "ToolStripPanelItemShapesGroup8";
-            this.ToolStripPanelItemShapesGroup8.Size = new System.Drawing.Size(35, 104);
+            this.ToolStripPanelItemShapesGroup8.Size = new System.Drawing.Size(35, 100);
             this.ToolStripPanelItemShapesGroup8.Transparent = true;
             // 
             // ToolStripButtonRightAngledTriangle
@@ -1536,7 +1612,7 @@
             this.ToolStripDropDownButtonShapeFill});
             this.ToolStripPanelItemShapesGroup9.Name = "ToolStripPanelItemShapesGroup9";
             this.ToolStripPanelItemShapesGroup9.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripPanelItemShapesGroup9.Size = new System.Drawing.Size(157, 104);
+            this.ToolStripPanelItemShapesGroup9.Size = new System.Drawing.Size(157, 100);
             this.ToolStripPanelItemShapesGroup9.Text = "toolStripPanelItem1";
             this.ToolStripPanelItemShapesGroup9.Transparent = true;
             // 
@@ -1711,7 +1787,7 @@
             this.ToolStripExSize.Name = "ToolStripExSize";
             this.ToolStripExSize.Office12Mode = false;
             this.ToolStripExSize.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExSize.Size = new System.Drawing.Size(144, 126);
+            this.ToolStripExSize.Size = new System.Drawing.Size(105, 122);
             this.ToolStripExSize.TabIndex = 0;
             this.ToolStripExSize.Text = "Size";
             // 
@@ -1821,9 +1897,10 @@
             "99",
             "100"});
             this.ToolStripComboBoxExSize.MaxDropDownItems = 15;
-            this.ToolStripComboBoxExSize.MaxLength = 32767;
+            this.ToolStripComboBoxExSize.MaxLength = 8;
             this.ToolStripComboBoxExSize.Name = "ToolStripComboBoxExSize";
-            this.ToolStripComboBoxExSize.Size = new System.Drawing.Size(65, 104);
+            this.ToolStripComboBoxExSize.Size = new System.Drawing.Size(65, 100);
+            this.ToolStripComboBoxExSize.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Colorful;
             toolTipInfo45.BackColor = System.Drawing.SystemColors.Control;
             toolTipInfo45.Body.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             toolTipInfo45.Body.Size = new System.Drawing.Size(20, 20);
@@ -1840,7 +1917,7 @@
             // ToolStripLabelSizeUnit
             // 
             this.ToolStripLabelSizeUnit.Name = "ToolStripLabelSizeUnit";
-            this.ToolStripLabelSizeUnit.Size = new System.Drawing.Size(29, 101);
+            this.ToolStripLabelSizeUnit.Size = new System.Drawing.Size(29, 97);
             this.ToolStripLabelSizeUnit.Text = "px";
             // 
             // ToolStripExColours
@@ -1853,11 +1930,11 @@
             this.ToolStripExColours.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolStripExColours.Image = null;
             this.ToolStripExColours.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ToolStripExColours.Location = new System.Drawing.Point(1145, 1);
+            this.ToolStripExColours.Location = new System.Drawing.Point(1106, 1);
             this.ToolStripExColours.Name = "ToolStripExColours";
             this.ToolStripExColours.Office12Mode = false;
             this.ToolStripExColours.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.ToolStripExColours.Size = new System.Drawing.Size(106, 126);
+            this.ToolStripExColours.Size = new System.Drawing.Size(106, 122);
             this.ToolStripExColours.TabIndex = 0;
             this.ToolStripExColours.Text = "Colours";
             // 
@@ -1908,9 +1985,9 @@
             this.PanelDrawingBoard.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PanelDrawingBoard.Controls.Add(this.PanelCanvas);
             this.PanelDrawingBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelDrawingBoard.Location = new System.Drawing.Point(1, 214);
+            this.PanelDrawingBoard.Location = new System.Drawing.Point(1, 210);
             this.PanelDrawingBoard.Name = "PanelDrawingBoard";
-            this.PanelDrawingBoard.Size = new System.Drawing.Size(1522, 679);
+            this.PanelDrawingBoard.Size = new System.Drawing.Size(1522, 683);
             this.PanelDrawingBoard.TabIndex = 0;
             // 
             // PanelCanvas
@@ -1918,7 +1995,7 @@
             this.PanelCanvas.BackColor = System.Drawing.Color.White;
             this.PanelCanvas.Location = new System.Drawing.Point(3, 3);
             this.PanelCanvas.Name = "PanelCanvas";
-            this.PanelCanvas.Size = new System.Drawing.Size(1219, 679);
+            this.PanelCanvas.Size = new System.Drawing.Size(1219, 677);
             this.PanelCanvas.TabIndex = 0;
             // 
             // FrmMainInterface
@@ -1927,8 +2004,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1524, 916);
-            this.Controls.Add(this.PanelDrawingBoard);
             this.Controls.Add(this.BackStageFile);
+            this.Controls.Add(this.PanelDrawingBoard);
             this.Controls.Add(this.RibbonControlAdvNavbar);
             this.Controls.Add(this.StatusStripExStatusBar);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1937,6 +2014,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMainInterface";
             this.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.ShowApplicationIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
             this.Load += new System.EventHandler(this.FrmMainInterface_Load);
@@ -1944,6 +2022,9 @@
             this.RibbonControlAdvNavbar.ResumeLayout(false);
             this.RibbonControlAdvNavbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackStageFile)).EndInit();
+            this.BackStageFile.ResumeLayout(false);
+            this.BackStageTabInfo.ResumeLayout(false);
+            this.BackStageTabInfo.PerformLayout();
             this.ToolStripTabItemHome.Panel.ResumeLayout(false);
             this.ToolStripTabItemHome.Panel.PerformLayout();
             this.ToolStripExClipboard.ResumeLayout(false);
@@ -1967,8 +2048,6 @@
         private Syncfusion.Windows.Forms.Tools.RibbonControlAdv RibbonControlAdvNavbar;
         private Syncfusion.Windows.Forms.Tools.ToolStripTabItem ToolStripTabItemHome;
         private Syncfusion.Windows.Forms.Tools.ToolStripTabItem ToolStripTabItemView;
-        private Syncfusion.Windows.Forms.BackStageView BackStageViewFile;
-        private Syncfusion.Windows.Forms.BackStage BackStageFile;
         private Syncfusion.Windows.Forms.Tools.SuperToolTip SuperToolTipNavbar;
         private Syncfusion.Windows.Forms.Tools.ToolStripEx ToolStripExClipboard;
         private Syncfusion.Windows.Forms.Tools.ToolStripPanelItem ToolStripPanelItemClipboardGroup;
@@ -2073,5 +2152,12 @@
         private System.Windows.Forms.ToolStripButton ToolStripButtonRightAngledTriangle;
         private System.Windows.Forms.ToolStripButton ToolStripButton4PointStar;
         private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx ToolStripComboBoxExSize;
+        private Syncfusion.Windows.Forms.BackStageView BackStageViewFile;
+        private Syncfusion.Windows.Forms.BackStage BackStageFile;
+        private Syncfusion.Windows.Forms.BackStageTab BackStageTabInfo;
+        private Syncfusion.WinForms.Controls.SfButton SfBtnAboutPaint;
+        private System.Windows.Forms.Label LblAboutPaintTip;
+        private System.Windows.Forms.Label LblAboutPaint;
+        private System.Windows.Forms.Label LblInfo;
     } // end partial class FrmMainInterface
 } // end namespace Paint
