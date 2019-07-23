@@ -20,7 +20,8 @@ namespace Paint
         public FrmMainInterface()
         {
             InitializeComponent();
-            this.SfBtnAboutPaint.Style.Border = new Pen(Color.DarkGray, 1);
+            RibbonControlAdvNavbar.QuickPanelVisible = true;
+            SfBtnAboutPaint.Style.Border = new Pen(Color.DarkGray, 1);
         } // end constructor FrmMainInterface
 
         #region Members

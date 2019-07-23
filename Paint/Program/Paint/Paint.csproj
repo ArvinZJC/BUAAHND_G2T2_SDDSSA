@@ -150,6 +150,7 @@
     <None Include="img\Oval.png" />
     <None Include="img\No Outline Or Fill.png" />
     <None Include="img\About Paint.png" />
+    <None Include="img\Edit Colours.png" />
     <Content Include="img\Paste.png" />
     <None Include="img\Resize.png" />
     <None Include="img\Rotate Right 90.png" />
