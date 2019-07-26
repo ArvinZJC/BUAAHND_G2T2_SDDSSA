@@ -22,7 +22,7 @@ namespace GradeSummary
 
         #region Members
         private int count = 0;
-        private readonly GradeSummaryGenerator gradeSummary; // create a GradeSummaryGenerator object and assign it to "gradeSummary";
+        private readonly GradeSummaryGenerator gradeSummary = new GradeSummaryGenerator(); // create a GradeSummaryGenerator object and assign it to "gradeSummary";
         #endregion Members
 
         #region Private Methods
@@ -97,6 +97,7 @@ namespace GradeSummary
 
             Hide(); // hide the main page
             summaryPage.ShowDialog(this); // display the summary page and set the main page as the owner of the summary page
+            summaryPage.Dispose();
         } // end method BtnSummaryPage_Click
 
         // have an operation on the storage and the status of the specified controls
