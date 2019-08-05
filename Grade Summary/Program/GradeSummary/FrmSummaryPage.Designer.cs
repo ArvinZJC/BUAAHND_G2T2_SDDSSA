@@ -1,6 +1,6 @@
 namespace GradeSummary
 {
-    partial class FrmSummaryPage
+    public partial class FrmSummaryPage
     {
         private System.ComponentModel.IContainer components = null; // required designer variable
 
