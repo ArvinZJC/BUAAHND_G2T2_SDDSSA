@@ -65,7 +65,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _4_point_Star {
             get {
-                object obj = ResourceManager.GetObject("_4_point_Star", resourceCulture);
+                object obj = ResourceManager.GetObject("4-point Star", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _5_point_Star {
             get {
-                object obj = ResourceManager.GetObject("_5_point_Star", resourceCulture);
+                object obj = ResourceManager.GetObject("5-point Star", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _6_point_Star {
             get {
-                object obj = ResourceManager.GetObject("_6_point_Star", resourceCulture);
+                object obj = ResourceManager.GetObject("6-point Star", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap About_Paint {
             get {
-                object obj = ResourceManager.GetObject("About_Paint", resourceCulture);
+                object obj = ResourceManager.GetObject("About Paint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +145,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Cloud_Callout {
             get {
-                object obj = ResourceManager.GetObject("Cloud_Callout", resourceCulture);
+                object obj = ResourceManager.GetObject("Cloud Callout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +156,16 @@ namespace Paint.Properties {
         internal static System.Drawing.Bitmap Colour_Picker {
             get {
                 object obj = ResourceManager.GetObject("Colour Picker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Colours {
+            get {
+                object obj = ResourceManager.GetObject("Colours", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -235,17 +245,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Down_Arrow {
             get {
-                object obj = ResourceManager.GetObject("Down_Arrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Edit_Colours {
-            get {
-                object obj = ResourceManager.GetObject("Edit_Colours", resourceCulture);
+                object obj = ResourceManager.GetObject("Down Arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -325,7 +325,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Left_Arrow {
             get {
-                object obj = ResourceManager.GetObject("Left_Arrow", resourceCulture);
+                object obj = ResourceManager.GetObject("Left Arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -395,7 +395,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap No_Outline_Or_Fill {
             get {
-                object obj = ResourceManager.GetObject("No_Outline_Or_Fill", resourceCulture);
+                object obj = ResourceManager.GetObject("No Outline Or Fill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -425,7 +425,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Oval_Callout {
             get {
-                object obj = ResourceManager.GetObject("Oval_Callout", resourceCulture);
+                object obj = ResourceManager.GetObject("Oval Callout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -446,16 +446,6 @@ namespace Paint.Properties {
         internal static System.Drawing.Bitmap Paste_From {
             get {
                 object obj = ResourceManager.GetObject("Paste From", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pencil {
-            get {
-                object obj = ResourceManager.GetObject("Pencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -505,7 +495,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Right_angled_Triangle {
             get {
-                object obj = ResourceManager.GetObject("Right_angled_Triangle", resourceCulture);
+                object obj = ResourceManager.GetObject("Right-angled Triangle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -515,7 +505,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Right_Arrow {
             get {
-                object obj = ResourceManager.GetObject("Right_Arrow", resourceCulture);
+                object obj = ResourceManager.GetObject("Right Arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -555,7 +545,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Rounded_Rectangle {
             get {
-                object obj = ResourceManager.GetObject("Rounded_Rectangle", resourceCulture);
+                object obj = ResourceManager.GetObject("Rounded Rectangle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -565,7 +555,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Rounded_Rectangle_Callout {
             get {
-                object obj = ResourceManager.GetObject("Rounded_Rectangle_Callout", resourceCulture);
+                object obj = ResourceManager.GetObject("Rounded Rectangle Callout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -605,7 +595,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Shape_FIll {
             get {
-                object obj = ResourceManager.GetObject("Shape_FIll", resourceCulture);
+                object obj = ResourceManager.GetObject("Shape FIll", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -615,7 +605,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Shape_Outline {
             get {
-                object obj = ResourceManager.GetObject("Shape_Outline", resourceCulture);
+                object obj = ResourceManager.GetObject("Shape Outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -645,7 +635,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Solid_Colour {
             get {
-                object obj = ResourceManager.GetObject("Solid_Colour", resourceCulture);
+                object obj = ResourceManager.GetObject("Solid Colour", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -685,7 +675,7 @@ namespace Paint.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Up_Arrow {
             get {
-                object obj = ResourceManager.GetObject("Up_Arrow", resourceCulture);
+                object obj = ResourceManager.GetObject("Up Arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

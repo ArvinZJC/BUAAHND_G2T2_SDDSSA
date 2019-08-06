@@ -20,8 +20,6 @@ namespace Paint
         public FrmMainInterface()
         {
             InitializeComponent();
-            RibbonControlAdvNavbar.QuickPanelVisible = true;
-            SfBtnAboutPaint.Style.Border = new Pen(Color.DarkGray, 1);
         } // end constructor FrmMainInterface
 
         #region Members
@@ -32,16 +30,16 @@ namespace Paint
         #region Private Methods
         private void InitialiseHomeControlStatus()
         {
-            // Home - Tools
-            ToolStripButtonPencil.Checked = false;
-            ToolStripButtonFillWithColour.Checked = false;
-            ToolStripButtonText.Checked = false;
-            ToolStripButtonRubber.Checked = false;
-            ToolStripButtonColourPicker.Checked = false;
-            ToolStripButtonMagnifier.Checked = false;
+            // Ribbon - Home - Tools
+            ToolStripBtnNaturalPencil.Checked = false;
+            ToolStripBtnFillWithColour.Checked = false;
+            ToolStripBtnText.Checked = false;
+            ToolStripBtnRubber.Checked = false;
+            ToolStripBtnColourPicker.Checked = false;
+            ToolStripBtnMagnifier.Checked = false;
 
-            // Home - Brushes
-            ToolStripSplitButtonExBrushes.BackColor = SystemColors.Control;
+            // Ribbon - Home - Brushes
+            ToolStripSplitBtnExBrushes.BackColor = SystemColors.Control;
             ToolStripMenuItemBrush.Checked = false;
             ToolStripMenuItemCalligraphyBrush1.Checked = false;
             ToolStripMenuItemCalligraphyBrush2.Checked = false;
@@ -49,142 +47,186 @@ namespace Paint
             ToolStripMenuItemOilBrush.Checked = false;
             ToolStripMenuItemCrayon_Brushes.Checked = false;
             ToolStripMenuItemMarker.Checked = false;
-            ToolStripMenuItemNaturalPencil_Brushes.Checked = false;
             ToolStripMenuItemWatercolourBrush.Checked = false;
 
-            // Home - Shapes
-            ToolStripButtonLine.Checked = false;
-            ToolStripButtonCurve.Checked = false;
-            ToolStripButtonOval.Checked = false;
-            ToolStripButtonRectangle.Checked = false;
-            ToolStripButtonRoundedRectangle.Checked = false;
-            ToolStripButtonPolygon.Checked = false;
-            ToolStripButtonTriangle.Checked = false;
-            ToolStripButtonRightAngledTriangle.Checked = false;
-            ToolStripButtonDiamond.Checked = false;
-            ToolStripButtonPentagon.Checked = false;
-            ToolStripButtonHexagon.Checked = false;
-            ToolStripButtonRightArrow.Checked = false;
-            ToolStripButtonLeftArrow.Checked = false;
-            ToolStripButtonUpArrow.Checked = false;
-            ToolStripButtonDownArrow.Checked = false;
-            ToolStripButton4PointStar.Checked = false;
-            ToolStripButton5PointStar.Checked = false;
-            ToolStripButton6PointStar.Checked = false;
-            ToolStripButtonRoundedRectangleCallout.Checked = false;
-            ToolStripButtonOvalCallout.Checked = false;
-            ToolStripButtonCloudCallout.Checked = false;
-            ToolStripButtonHeart.Checked = false;
-            ToolStripButtonLightning.Checked = false;
-            ToolStripDropDownButtonShapeOutline.Enabled = false;
-            ToolStripDropDownButtonShapeFill.Enabled = false;
+            // Ribbon - Home - Shapes
+            ToolStripBtnLine.Checked = false;
+            ToolStripBtnCurve.Checked = false;
+            ToolStripBtnOval.Checked = false;
+            ToolStripBtnRectangle.Checked = false;
+            ToolStripBtnRoundedRectangle.Checked = false;
+            ToolStripBtnPolygon.Checked = false;
+            ToolStripBtnTriangle.Checked = false;
+            ToolStripBtnRightAngledTriangle.Checked = false;
+            ToolStripBtnDiamond.Checked = false;
+            ToolStripBtnPentagon.Checked = false;
+            ToolStripBtnHexagon.Checked = false;
+            ToolStripBtnRightArrow.Checked = false;
+            ToolStripBtnLeftArrow.Checked = false;
+            ToolStripBtnUpArrow.Checked = false;
+            ToolStripBtnDownArrow.Checked = false;
+            ToolStripBtn4PointStar.Checked = false;
+            ToolStripBtn5PointStar.Checked = false;
+            ToolStripBtn6PointStar.Checked = false;
+            ToolStripBtnRoundedRectangleCallout.Checked = false;
+            ToolStripBtnOvalCallout.Checked = false;
+            ToolStripBtnCloudCallout.Checked = false;
+            ToolStripBtnHeart.Checked = false;
+            ToolStripBtnLightning.Checked = false;
+            ToolStripDropDownBtnShapeOutline.Enabled = false;
+            ToolStripDropDownBtnShapeFill.Enabled = false;
 
-            ToolStripComboBoxExSize.Enabled = true; // Home - Size
+            // Ribbon - Home - Size
+            ToolStripComboBoxExSize.Enabled = true;
+            ToolStripComboBoxExSize.Text = "5";
+
+            AvoidRibbonComboBoxDeadLock();
         } // end method InitialiseHomeControlStatus
+
+        /**
+         * avoid the ContextSwitchDeadLock exception relevant to the combo boxes in the ribbon;
+         * this is just a temporary solution
+         */
+        private void AvoidRibbonComboBoxDeadLock()
+        {
+            if (ToolStripComboBoxExSize.Focused)
+            {
+                RibbonControlAdvNavbar.SelectedTab = ToolStripTabItemView;
+                RibbonControlAdvNavbar.SelectedTab = ToolStripTabItemHome;
+            } // end if
+        } // end method AvoidRibbonComboBoxDeadLock
         #endregion Private Methods
 
         #region Control Events
         // execute when the form for the main interface is loaded
         private void FrmMainInterface_Load(object sender, EventArgs e)
         {
-            ToolStripMenuItemBrush.Checked = true; // Home - Brushes
+            ShowApplicationIcon = true; // the form for the main interface (temporary solution; waiting for Syncfusion Aug Update to fix it)
+            RibbonControlAdvNavbar.Size = new Size(RibbonControlAdvNavbar.Size.Width, 205); // Ribbon
+            SfBtnAboutPaint.Style.Border = new Pen(Color.DarkGray, 1); // Ribbon - File
+            ToolStripMenuItemBrush.Checked = true; // Ribbon - Home - Brushes
 
-            // Home - Shapes
-            ToolStripDropDownButtonShapeOutline.Enabled = false;
-            ToolStripDropDownButtonShapeFill.Enabled = false;
+            // Ribbon - Home - Shapes
+            ToolStripDropDownBtnShapeOutline.Enabled = false;
+            ToolStripDropDownBtnShapeFill.Enabled = false;
 
-            ToolStripComboBoxExSize.Text = "5"; // Home - Size
+            int pixel = 1;
+            object[] pixels = new object[100];
+
+            for (int count = 0; count < 100; count++)
+                pixels[count] = pixel++;
+
+            ToolStripComboBoxExSize.Items.AddRange(pixels); // Ribbon - Home - Size
+
+            // Ribbon - Home - Colours
+            ColourDialogColour1.Color = ToolStripTxtColour1.BackColor;
+            ColourDialogColour2.Color = ToolStripTxtColour2.BackColor;
+
+            // Canvas
+            CanvasRectTracker canvasRectTracker_PanelCanvas = new CanvasRectTracker(PanelCanvas);
+            PanelCanvas.Parent.Controls.Add(canvasRectTracker_PanelCanvas);
         } // end method FrmMainInterface_Load
 
+        // execute when the form for the main interface is being closed
+        private void FrmMainInterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AvoidRibbonComboBoxDeadLock();
+        } // end method FrmMainInterface_FormClosing
+
+        #region Ribbon
         #region File
         private void SfBtnAboutPaint_Click(object sender, EventArgs e)
         {
             FrmAboutPaint aboutPaint = new FrmAboutPaint();
 
             aboutPaint.ShowDialog(this);
+            aboutPaint.Dispose();
         } // end method SfBtnAboutPaint_Click
         #endregion File
 
         #region Home
         #region Tools
-        private void ToolStripButtonPencil_Click(object sender, EventArgs e)
+        private void ToolStripBtnNaturalPencil_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonPencil.Checked)
+            if (!ToolStripBtnNaturalPencil.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonPencil.Checked = true;
+                ToolStripBtnNaturalPencil.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Text = "6"; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonPencil_Click
+        } // end method ToolStripBtnNaturalPencil_Click
 
-        private void ToolStripButtonFillWithColour_Click(object sender, EventArgs e)
+        private void ToolStripBtnFillWithColour_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonFillWithColour.Checked)
+            if (!ToolStripBtnFillWithColour.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonFillWithColour.Checked = true;
-                ToolStripComboBoxExSize.Enabled = false;
+                ToolStripBtnFillWithColour.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Enabled = false; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonFillWithColour_Click
+        } // end method ToolStripBtnFillWithColour_Click
 
-        private void ToolStripButtonText_Click(object sender, EventArgs e)
+        private void ToolStripBtnText_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonText.Checked)
+            if (!ToolStripBtnText.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonText.Checked = true;
-                ToolStripComboBoxExSize.Enabled = false;
+                ToolStripBtnText.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Enabled = false; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonText_Click
+        } // end method ToolStripBtnText_Click
 
-        private void ToolStripButtonRubber_Click(object sender, EventArgs e)
+        private void ToolStripBtnRubber_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRubber.Checked)
+            if (!ToolStripBtnRubber.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRubber.Checked = true;
+                ToolStripBtnRubber.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Text = "25"; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonRubber_Click
+        } // end method ToolStripBtnRubber_Click
 
-        private void ToolStripButtonColourPicker_Click(object sender, EventArgs e)
+        private void ToolStripBtnColourPicker_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonColourPicker.Checked)
+            if (!ToolStripBtnColourPicker.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonColourPicker.Checked = true;
-                ToolStripComboBoxExSize.Enabled = false;
+                ToolStripBtnColourPicker.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Enabled = false; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonColourPicker_Click
+        } // end method ToolStripBtnColourPicker_Click
 
-        private void ToolStripButtonMagnifier_Click(object sender, EventArgs e)
+        private void ToolStripBtnMagnifier_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonMagnifier.Checked)
+            if (!ToolStripBtnMagnifier.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonMagnifier.Checked = true;
-                ToolStripComboBoxExSize.Enabled = false;
+                ToolStripBtnMagnifier.Checked = true; // Ribbon - Home - Tools
+                ToolStripComboBoxExSize.Enabled = false; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripButtonMagnifier_Click
+        } // end method ToolStripBtnMagnifier_Click
         #endregion Tools
 
         #region Brushes
-        private void ToolStripSplitButtonExBrushes_Click(object sender, EventArgs e)
+        private void ToolStripSplitBtnExBrushes_Click(object sender, EventArgs e)
         {
-            // the property "Tag" of the control "ToolStripSplitButtonExBrushes" records last brush used
-            switch (ToolStripSplitButtonExBrushes.Tag)
+            // the property "Tag" of the control "ToolStripSplitBtnExBrushes" records last brush used
+            switch (ToolStripSplitBtnExBrushes.Tag)
             {
                 // brush
                 case 0:
+                default:
                     if (!ToolStripMenuItemBrush.Checked)
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemBrush.Checked = true;
+                        ToolStripMenuItemBrush.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -194,7 +236,7 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemCalligraphyBrush1.Checked = true;
+                        ToolStripMenuItemCalligraphyBrush1.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -204,7 +246,7 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemCalligraphyBrush2.Checked = true;
+                        ToolStripMenuItemCalligraphyBrush2.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -214,7 +256,7 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemAirbrush.Checked = true;
+                        ToolStripMenuItemAirbrush.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -224,7 +266,7 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemOilBrush.Checked = true;
+                        ToolStripMenuItemOilBrush.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -234,7 +276,7 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemCrayon_Brushes.Checked = true;
+                        ToolStripMenuItemCrayon_Brushes.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
@@ -244,36 +286,21 @@ namespace Paint
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemMarker.Checked = true;
-                    } // end if
-                    break;
-
-                // natural pencil
-                case 7:
-                    if (!ToolStripMenuItemNaturalPencil_Brushes.Checked)
-                    {
-                        InitialiseHomeControlStatus();
-
-                        ToolStripMenuItemNaturalPencil_Brushes.Checked = true;
+                        ToolStripMenuItemMarker.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
 
                 // watercolour brush
-                case 8:
+                case 7:
                     if (!ToolStripMenuItemWatercolourBrush.Checked)
                     {
                         InitialiseHomeControlStatus();
 
-                        ToolStripMenuItemWatercolourBrush.Checked = true;
+                        ToolStripMenuItemWatercolourBrush.Checked = true; // Ribbon - Home - Brushes
                     } // end if
                     break;
-
-                default:
-                    InitialiseHomeControlStatus();
-                    ToolStripMenuItemBrush.Checked = true;
-                    break;
             } // end switch-case
-        } // end method ToolStripSplitButtonExBrushes_Click
+        } // end method ToolStripSplitBtnExBrushes_Click
 
         private void ToolStripMenuItemBrush_Click(object sender, EventArgs e)
         {
@@ -281,7 +308,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemBrush.Checked = true;
+                ToolStripMenuItemBrush.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemBrush_Click
 
@@ -289,13 +316,14 @@ namespace Paint
         {
             if (ToolStripMenuItemBrush.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Brush;
-                ToolStripSplitButtonExBrushes.Tag = 0;
-                ToolStripMenuItemBrush.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemBrush.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Brush;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Brush;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 0;
+
+                ToolStripComboBoxExSize.Text = "5"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemBrush_CheckedChanged
 
         private void ToolStripMenuItemCalligraphyBrush1_Click(object sender, EventArgs e)
@@ -304,7 +332,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemCalligraphyBrush1.Checked = true;
+                ToolStripMenuItemCalligraphyBrush1.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemCalligraphyBrush1_Click
 
@@ -312,13 +340,14 @@ namespace Paint
         {
             if (ToolStripMenuItemCalligraphyBrush1.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Calligraphy_Brush_1;
-                ToolStripSplitButtonExBrushes.Tag = 1;
-                ToolStripMenuItemCalligraphyBrush1.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemCalligraphyBrush1.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Calligraphy_Brush_1;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Calligraphy_Brush_1;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 1;
+
+                ToolStripComboBoxExSize.Text = "5"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemCalligraphyBrush1_CheckedChanged
 
         private void ToolStripMenuItemCalligraphyBrush2_Click(object sender, EventArgs e)
@@ -327,7 +356,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemCalligraphyBrush2.Checked = true;
+                ToolStripMenuItemCalligraphyBrush2.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemCalligraphyBrush2_Click
 
@@ -335,13 +364,14 @@ namespace Paint
         {
             if (ToolStripMenuItemCalligraphyBrush2.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Calligraphy_Brush_2;
-                ToolStripSplitButtonExBrushes.Tag = 2;
-                ToolStripMenuItemCalligraphyBrush2.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemCalligraphyBrush2.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Calligraphy_Brush_2;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Calligraphy_Brush_2;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 2;
+
+                ToolStripComboBoxExSize.Text = "5"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemCalligraphyBrush2_CheckedChanged
 
         private void ToolStripMenuItemAirbrush_Click(object sender, EventArgs e)
@@ -350,7 +380,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemAirbrush.Checked = true;
+                ToolStripMenuItemAirbrush.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemAirbrush_Click
 
@@ -358,13 +388,14 @@ namespace Paint
         {
             if (ToolStripMenuItemAirbrush.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Airbrush;
-                ToolStripSplitButtonExBrushes.Tag = 3;
-                ToolStripMenuItemAirbrush.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemAirbrush.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Airbrush;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Airbrush;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 3;
+
+                ToolStripComboBoxExSize.Text = "10"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemAirbrush_CheckedChanged
 
         private void ToolStripMenuItemOilBrush_Click(object sender, EventArgs e)
@@ -373,7 +404,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemOilBrush.Checked = true;
+                ToolStripMenuItemOilBrush.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemOilBrush_Click
 
@@ -381,13 +412,14 @@ namespace Paint
         {
             if (ToolStripMenuItemOilBrush.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Oil_Brush;
-                ToolStripSplitButtonExBrushes.Tag = 4;
-                ToolStripMenuItemOilBrush.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemOilBrush.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Oil_Brush;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Oil_Brush;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 4;
+
+                ToolStripComboBoxExSize.Text = "50"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemOilBrush_CheckedChanged
 
         private void ToolStripMenuItemCrayon_Brushes_Click(object sender, EventArgs e)
@@ -396,7 +428,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemCrayon_Brushes.Checked = true;
+                ToolStripMenuItemCrayon_Brushes.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemCrayon_Brushes_Click
 
@@ -404,13 +436,14 @@ namespace Paint
         {
             if (ToolStripMenuItemCrayon_Brushes.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Crayon;
-                ToolStripSplitButtonExBrushes.Tag = 5;
-                ToolStripMenuItemCrayon_Brushes.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemCrayon_Brushes.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Crayon;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Crayon;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 5;
+
+                ToolStripComboBoxExSize.Text = "20"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemCrayon_Brushes_CheckedChanged
 
         private void ToolStripMenuItemMarker_Click(object sender, EventArgs e)
@@ -419,7 +452,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemMarker.Checked = true;
+                ToolStripMenuItemMarker.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemMarker_Click
 
@@ -427,37 +460,15 @@ namespace Paint
         {
             if (ToolStripMenuItemMarker.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Marker;
-                ToolStripSplitButtonExBrushes.Tag = 6;
-                ToolStripMenuItemMarker.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemMarker.BackColor = SystemColors.Control;
-        } // end method ToolStripMenuItemMarker_CheckedChanged
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Marker;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Marker;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 6;
 
-        private void ToolStripMenuItemNaturalPencil_Brushes_Click(object sender, EventArgs e)
-        {
-            if (!ToolStripMenuItemNaturalPencil_Brushes.Checked)
-            {
-                InitialiseHomeControlStatus();
-
-                ToolStripMenuItemNaturalPencil_Brushes.Checked = true;
+                ToolStripComboBoxExSize.Text = "5"; // Ribbon - Home - Size
             } // end if
-        } // end method ToolStripMenuItemNaturalPencil_Brushes_Click
-
-        private void ToolStripMenuItemNaturalPencil_Brushes_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ToolStripMenuItemNaturalPencil_Brushes.Checked)
-            {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Natural_Pencil;
-                ToolStripSplitButtonExBrushes.Tag = 7;
-                ToolStripMenuItemNaturalPencil_Brushes.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemNaturalPencil_Brushes.BackColor = SystemColors.Control;
-        } // end method ToolStripMenuItemNaturalPencil_Brushes_CheckedChanged
+        } // end method ToolStripMenuItemMarker_CheckedChanged
 
         private void ToolStripMenuItemWatercolourBrush_Click(object sender, EventArgs e)
         {
@@ -465,7 +476,7 @@ namespace Paint
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripMenuItemWatercolourBrush.Checked = true;
+                ToolStripMenuItemWatercolourBrush.Checked = true; // Ribbon - Home - Brushes
             } // end if
         } // end method ToolStripMenuItemWatercolourBrush_Click
 
@@ -473,290 +484,291 @@ namespace Paint
         {
             if (ToolStripMenuItemWatercolourBrush.Checked)
             {
-                ToolStripSplitButtonExBrushes.BackColor = SystemColors.ButtonShadow;
-                ToolStripSplitButtonExBrushes.Image = Properties.Resources.Watercolour_Brush;
-                ToolStripSplitButtonExBrushes.Tag = 8;
-                ToolStripMenuItemWatercolourBrush.BackColor = SystemColors.ButtonShadow;
-            }
-            else
-                ToolStripMenuItemWatercolourBrush.BackColor = SystemColors.Control;
+                // Ribbon - Home - Brushes
+                ToolStripExBrushes.Image = Properties.Resources.Watercolour_Brush;
+                ToolStripSplitBtnExBrushes.Image = Properties.Resources.Watercolour_Brush;
+                ToolStripSplitBtnExBrushes.BackColor = SystemColors.ButtonShadow;
+                ToolStripSplitBtnExBrushes.Tag = 7;
+
+                ToolStripComboBoxExSize.Text = "50"; // Ribbon - Home - Size
+            } // end if
         } // end method ToolStripMenuItemWatercolourBrush_CheckedChanged
         #endregion Brushes
 
         #region Shapes
-        private void ToolStripButtonLine_Click(object sender, EventArgs e)
+        private void ToolStripBtnLine_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonLine.Checked)
+            if (!ToolStripBtnLine.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonLine.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
+                ToolStripBtnLine.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
             } // end if
-        } // end method ToolStripButtonLine_Click
+        } // end method ToolStripBtnLine_Click
 
-        private void ToolStripButtonCurve_Click(object sender, EventArgs e)
+        private void ToolStripBtnCurve_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonCurve.Checked)
+            if (!ToolStripBtnCurve.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonCurve.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
+                ToolStripBtnCurve.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
             } // end if
-        } // end method ToolStripButtonCurve_Click
+        } // end method ToolStripBtnCurve_Click
 
-        private void ToolStripButtonOval_Click(object sender, EventArgs e)
+        private void ToolStripBtnOval_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonOval.Checked)
+            if (!ToolStripBtnOval.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonOval.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnOval.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonOval_Click
+        } // end method ToolStripBtnOval_Click
 
-        private void ToolStripButtonRectangle_Click(object sender, EventArgs e)
+        private void ToolStripBtnRectangle_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRectangle.Checked)
+            if (!ToolStripBtnRectangle.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRectangle.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnRectangle.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonRectangle_Click
+        } // end method ToolStripBtnRectangle_Click
 
-        private void ToolStripButtonRoundedRectangle_Click(object sender, EventArgs e)
+        private void ToolStripBtnRoundedRectangle_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRoundedRectangle.Checked)
+            if (!ToolStripBtnRoundedRectangle.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRoundedRectangle.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnRoundedRectangle.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonRoundedRectangle_Click
+        } // end method ToolStripBtnRoundedRectangle_Click
 
-        private void ToolStripButtonPolygon_Click(object sender, EventArgs e)
+        private void ToolStripBtnPolygon_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonPolygon.Checked)
+            if (!ToolStripBtnPolygon.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonPolygon.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnPolygon.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonPolygon_Click
+        } // end method ToolStripBtnPolygon_Click
 
-        private void ToolStripButtonTriangle_Click(object sender, EventArgs e)
+        private void ToolStripBtnTriangle_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonTriangle.Checked)
+            if (!ToolStripBtnTriangle.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonTriangle.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnTriangle.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonTriangle_Click
+        } // end method ToolStripBtnTriangle_Click
 
-        private void ToolStripButtonRightAngledTriangle_Click(object sender, EventArgs e)
+        private void ToolStripBtnRightAngledTriangle_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRightAngledTriangle.Checked)
+            if (!ToolStripBtnRightAngledTriangle.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRightAngledTriangle.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnRightAngledTriangle.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonRightAngledTriangle_Click
+        } // end method ToolStripBtnRightAngledTriangle_Click
 
-        private void ToolStripButtonDiamond_Click(object sender, EventArgs e)
+        private void ToolStripBtnDiamond_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonDiamond.Checked)
+            if (!ToolStripBtnDiamond.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonDiamond.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnDiamond.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonDiamond_Click
+        } // end method ToolStripBtnDiamond_Click
 
-        private void ToolStripButtonPentagon_Click(object sender, EventArgs e)
+        private void ToolStripBtnPentagon_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonPentagon.Checked)
+            if (!ToolStripBtnPentagon.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonPentagon.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnPentagon.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonPentagon_Click
+        } // end method ToolStripBtnPentagon_Click
 
-        private void ToolStripButtonHexagon_Click(object sender, EventArgs e)
+        private void ToolStripBtnHexagon_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonHexagon.Checked)
+            if (!ToolStripBtnHexagon.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonHexagon.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnHexagon.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonHexagon_Click
+        } // end method ToolStripBtnHexagon_Click
 
-        private void ToolStripButtonRightArrow_Click(object sender, EventArgs e)
+        private void ToolStripBtnRightArrow_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRightArrow.Checked)
+            if (!ToolStripBtnRightArrow.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRightArrow.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnRightArrow.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonRightArrow_Click
+        } // end method ToolStripBtnRightArrow_Click
 
-        private void ToolStripButtonLeftArrow_Click(object sender, EventArgs e)
+        private void ToolStripBtnLeftArrow_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonLeftArrow.Checked)
+            if (!ToolStripBtnLeftArrow.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonLeftArrow.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnLeftArrow.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonLeftArrow_Click
+        } // end method ToolStripBtnLeftArrow_Click
 
-        private void ToolStripButtonUpArrow_Click(object sender, EventArgs e)
+        private void ToolStripBtnUpArrow_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonUpArrow.Checked)
+            if (!ToolStripBtnUpArrow.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonUpArrow.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnUpArrow.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonUpArrow_Click
+        } // end method ToolStripBtnUpArrow_Click
 
-        private void ToolStripButtonDownArrow_Click(object sender, EventArgs e)
+        private void ToolStripBtnDownArrow_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonDownArrow.Checked)
+            if (!ToolStripBtnDownArrow.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonDownArrow.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnDownArrow.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonDownArrow_Click
+        } // end method ToolStripBtnDownArrow_Click
 
-        private void ToolStripButton4PointStar_Click(object sender, EventArgs e)
+        private void ToolStripBtn4PointStar_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButton4PointStar.Checked)
+            if (!ToolStripBtn4PointStar.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButton4PointStar.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtn4PointStar.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButton4PointStar_Click
+        } // end method ToolStripBtn4PointStar_Click
 
-        private void ToolStripButton5PointStar_Click(object sender, EventArgs e)
+        private void ToolStripBtn5PointStar_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButton5PointStar.Checked)
+            if (!ToolStripBtn5PointStar.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButton5PointStar.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtn5PointStar.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButton5PointStar_Click
+        } // end method ToolStripBtn5PointStar_Click
 
-        private void ToolStripButton6PointStar_Click(object sender, EventArgs e)
+        private void ToolStripBtn6PointStar_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButton6PointStar.Checked)
+            if (!ToolStripBtn6PointStar.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButton6PointStar.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtn6PointStar.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButton6PointStar_Click
+        } // end method ToolStripBtn6PointStar_Click
 
-        private void ToolStripButtonRoundedRectangleCallout_Click(object sender, EventArgs e)
+        private void ToolStripBtnRoundedRectangleCallout_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonRoundedRectangleCallout.Checked)
+            if (!ToolStripBtnRoundedRectangleCallout.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonRoundedRectangleCallout.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnRoundedRectangleCallout.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonRoundedRectangleCallout_Click
+        } // end method ToolStripBtnRoundedRectangleCallout_Click
 
-        private void ToolStripButtonOvalCallout_Click(object sender, EventArgs e)
+        private void ToolStripBtnOvalCallout_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonOvalCallout.Checked)
+            if (!ToolStripBtnOvalCallout.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonOvalCallout.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnOvalCallout.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonOvalCallout_Click
+        } // end method ToolStripBtnOvalCallout_Click
 
-        private void ToolStripButtonCloudCallout_Click(object sender, EventArgs e)
+        private void ToolStripBtnCloudCallout_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonCloudCallout.Checked)
+            if (!ToolStripBtnCloudCallout.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonCloudCallout.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnCloudCallout.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonCloudCallout_Click
+        } // end method ToolStripBtnCloudCallout_Click
 
-        private void ToolStripButtonHeart_Click(object sender, EventArgs e)
+        private void ToolStripBtnHeart_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonHeart.Checked)
+            if (!ToolStripBtnHeart.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonHeart.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnHeart.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonHeart_Click
+        } // end method ToolStripBtnHeart_Click
 
-        private void ToolStripButtonLightning_Click(object sender, EventArgs e)
+        private void ToolStripBtnLightning_Click(object sender, EventArgs e)
         {
-            if (!ToolStripButtonLightning.Checked)
+            if (!ToolStripBtnLightning.Checked)
             {
                 InitialiseHomeControlStatus();
 
-                ToolStripButtonLightning.Checked = true;
-                ToolStripDropDownButtonShapeOutline.Enabled = true;
-                ToolStripDropDownButtonShapeFill.Enabled = true;
+                ToolStripBtnLightning.Checked = true;
+                ToolStripDropDownBtnShapeOutline.Enabled = true;
+                ToolStripDropDownBtnShapeFill.Enabled = true;
             } // end if
-        } // end method ToolStripButtonLightning_Click
+        } // end method ToolStripBtnLightning_Click
         #endregion Shapes
 
         #region Size
@@ -766,16 +778,38 @@ namespace Paint
             {
                 ToolStripComboBoxExSize.Text = "5";
 
-                MessageBox.Show("Error! Invalid input value. The value will be set to 5px.", applicationInfo.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid input value. The value will be set to 5px.", applicationInfo.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
             } // end if
         } // end method ToolStripComboBoxExSize_TextChanged
         #endregion Size
 
+        #region Colours
+        private void ToolStripBtnColour1_Click(object sender, EventArgs e)
+        {
+            DialogResult colourDialogResultColour1 = ColourDialogColour1.ShowDialog();
+
+            if (colourDialogResultColour1 == DialogResult.OK)
+                ToolStripTxtColour1.BackColor = ColourDialogColour1.Color;
+
+            RibbonControlAdvNavbar.Refresh();
+        } // end method ToolStripBtnColour1_Click
+
+        private void ToolStripBtnColour2_Click(object sender, EventArgs e)
+        {
+            DialogResult colourDialogResultColour2 = ColourDialogColour2.ShowDialog();
+
+            if (colourDialogResultColour2 == DialogResult.OK)
+                ToolStripTxtColour2.BackColor = ColourDialogColour2.Color;
+
+            RibbonControlAdvNavbar.Refresh();
+        } // end method ToolStripBtnColour2_Click
+        #endregion Colours
         #endregion Home
 
         #region View
 
         #endregion View
+        #endregion Ribbon
 
         #endregion Control Events
     } // end partial class FrmMainInterface

@@ -1,6 +1,6 @@
 namespace Paint
 {
-    partial class FrmAboutPaint
+    public partial class FrmAboutPaint
     {
         private System.ComponentModel.IContainer components = null; // required designer variable
 

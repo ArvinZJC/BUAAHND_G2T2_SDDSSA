@@ -48,6 +48,9 @@
     <Reference Include="Syncfusion.Chart.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Chart.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Core.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Tools.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -84,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CanvasRectTracker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CanvasRectTracker.Designer.cs">
+      <DependentUpon>CanvasRectTracker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmAboutPaint.resx">
       <DependentUpon>FrmAboutPaint.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +103,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CanvasRectTracker.resx">
+      <DependentUpon>CanvasRectTracker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -151,6 +163,7 @@
     <None Include="img\No Outline Or Fill.png" />
     <None Include="img\About Paint.png" />
     <None Include="img\Edit Colours.png" />
+    <None Include="img\Colours.png" />
     <Content Include="img\Paste.png" />
     <None Include="img\Resize.png" />
     <None Include="img\Rotate Right 90.png" />
