@@ -34,17 +34,18 @@ namespace Paint
         #endregion Enum Definition
 
         #region Members
-        private readonly ApplicationInfo applicationInfo = new ApplicationInfo();
-        private readonly Panel canvasTracked;
         private const int canvasTrackedWidth_Min = 12;
         private const int canvasTrackedHeight_Min = 12;
         private const int canvasResizeHandleWidth = 10;
         private const int canvasResizeHandleHeight = 10;
-        private Size canvasResizeHandleSize = new Size(canvasResizeHandleWidth, canvasResizeHandleHeight);
+        private readonly ApplicationInfo applicationInfo = new ApplicationInfo();
+        private readonly Panel canvasTracked;
         private readonly Rectangle[] canvasResizeHandles = new Rectangle[3];
         private readonly Rectangle[] controlBorders = new Rectangle[4];
         private static Graphics g;
+        private Size canvasResizeHandleSize = new Size(canvasResizeHandleWidth, canvasResizeHandleHeight);
         private CanvasResizeHandleLocation activeCanvasResizeHandle;
+        private Point mouseDownLocation;
         private Point prevMouseLocation;
         private bool hasMoved = false;
         #endregion Members
@@ -80,7 +81,7 @@ namespace Paint
                 canvasResizeHandleWidth + 1,
                 Height - canvasResizeHandleHeight - 1,
                 Width - canvasResizeHandleWidth - 1,
-                canvasResizeHandleHeight + 1); //bottom
+                canvasResizeHandleHeight + 1); // bottom
             controlBorders[2] = new Rectangle(
                 0,
                 canvasResizeHandleHeight + 1,
@@ -140,7 +141,11 @@ namespace Paint
         {
             // keep the cursor style when the left mouse button is pressed.
             if (e.Button == MouseButtons.Left)
+            {
+                mouseDownLocation = new Point(e.X, e.Y);
+
                 UpdateCursorStyle(e.X, e.Y);
+            } // end if
         } // end method CanvasRectTracker_MouseDown
 
         // execute when the mouse pointer is moved over the control
@@ -156,18 +161,20 @@ namespace Paint
                     {
                         Visible = false;
 
+                        // ensure that the width of the canvas tracked is not smaller than the minimum width
                         if (canvasTracked.Width < canvasTrackedWidth_Min)
                         {
                             canvasTracked.Width = canvasTrackedWidth_Min;
                             return;
                         } // end if
 
+                        // ensure that the height of the canvas tracked is not smaller than the maximum height
                         if (canvasTracked.Height < canvasTrackedHeight_Min)
                         {
                             canvasTracked.Height = canvasTrackedHeight_Min;
                             return;
                         } // end if
-                        
+
                         switch ((int)activeCanvasResizeHandle)
                         {
                             // bottom
@@ -182,8 +189,8 @@ namespace Paint
 
                             // bottom-right
                             case 3:
-                                canvasTracked.Height += (e.Y - prevMouseLocation.Y);
                                 canvasTracked.Width += (e.X - prevMouseLocation.X);
+                                canvasTracked.Height += (e.Y - prevMouseLocation.Y);
                                 break;
                         } // end switch-case
 
@@ -193,8 +200,9 @@ namespace Paint
                     {
                         MessageBox.Show("There is not enough free memory or resources to complete operation.\nClose some programs, then try again.", applicationInfo.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        canvasTracked.Width -= canvasResizeHandleWidth;
-                        canvasTracked.Height -= canvasResizeHandleHeight;
+                        // restore the size of the canvas tracked according to the latest mouse-down location
+                        canvasTracked.Width -= (e.X - mouseDownLocation.X);
+                        canvasTracked.Height -= (e.Y - mouseDownLocation.Y);
 
                         CreateControlArea();
 
