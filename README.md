@@ -4,4 +4,4 @@ This repository contains code written for practising the knowledge gained from t
 
 ## ATTENTION
 
-1. By 18 February 2020, everything looks good with VS 2019 + .NET Framework 4.7.2.
+1. By 5 May 2020, everything looks good with VS 2019 + .NET Framework 4.7.2.
